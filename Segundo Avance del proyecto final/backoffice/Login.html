@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="login-container">
+  <div class="login-box">
+
+    <div class="logo-container">
+      <img src="img/osito.jpg" class="logo osito">
+      <img src="img/osoTapado.png" class="logo oso-tapado">
+    </div>
+
+    <h1>Inicio de Sesión</h1>
+
+    <form onsubmit="loginUser(event)">
+      <label>Correo:</label>
+      <input id="email" type="email" required>
+
+      <label>Contraseña:</label>
+      <input id="password" type="password" required>
+
+      <button type="submit">Ingresar</button>
+    </form>
+
+    <p>¿No tienes cuenta? <a href="Register.html">Regístrate aquí</a></p>
+  </div>
+</div>
+
+<script src="./auth.js"></script>
+
+<div id="tsparticles"></div>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: true, zIndex: 0 },
+  particles: {
+    number: { value: 0 },
+    color: { value: "#d9a679" },
+    shape: { type: "star" },
+    size: { value: { min: 1, max: 3 } },
+    move: { enable: true, speed: 1, outModes: "destroy" },
+    life: { duration: { value: 0.5 }, count: 1 }
+  },
+  interactivity: {
+    events: { onHover: { enable: true, mode: "trail" }, onClick: { enable: false } },
+    modes: {
+      trail: {
+        delay: 0.005,
+        quantity: 4,
+        particles: {
+          number: { value: 4 },
+          life: { duration: { value: 0.3 } },
+          size: { value: { min: 1, max: 2 } }
+        }
+      }
+    }
+  },
+  detectRetina: true,
+  background: { color: "transparent" }
+});
+</script>
+
+</body>
+</html>
