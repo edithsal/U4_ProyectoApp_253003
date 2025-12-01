@@ -1,0 +1,418 @@
+:root {
+  --fondo-principal: #f6e7d8;
+  --fondo-transparente: rgba(255, 243, 228, 0.85);
+  --fondo-secundario: #fff3e4;
+  --borde-caja: rgba(210, 176, 145, 0.7);
+  --borde-secundario: #e8c7a3;
+  --borde-terciario: #e6c5a8;
+  --sombra-caja: rgba(150, 100, 50, 0.30);
+  --sombra-interna: rgba(180, 140, 110, 0.2);
+  --sombra-input-focus: rgba(190, 150, 110, 0.5);
+  --sombra-logo: rgba(200, 150, 100, 0.3);
+  --sombra-borde: rgba(180, 150, 120, 0.3);
+  --sombra-boton: rgba(140, 90, 50, 0.35);
+  --sombra-boton-hover: rgba(140, 90, 50, 0.5);
+
+  --color-texto: #4a3b2a;
+  --color-principal: #8b5e3c;
+  --color-secundario: #7b5b3a;
+  --color-placeholder: #a6896a;
+  --color-enlace: #c88f5d;
+  --color-hover-enlace: #c88f5d;
+  --color-icono: #8b5e3c;
+  --color-icono-hover: #b9825c;
+
+  --input-fondo: #e7c9a9;
+  --input-borde: rgba(180, 140, 110, 0.4);
+  --input-focus-fondo: #f2dbc4;
+  --input-focus-borde: #b78d68;
+
+  --gradiente-boton: linear-gradient(135deg, #d9a679, #c88f5d);
+  --gradiente-decorativo: linear-gradient(to right, transparent, #c49b78, transparent);
+
+  --boton-fondo-header: #d96c55;
+
+  --logo-borde: #e3c3a2;
+
+  --panel-borde: #e6c5a8;
+
+  --proyecto-fondo: #f6e7d8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--fondo-principal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background: url("img/ej3.jpg"), radial-gradient(circle at top, #f7e8da, #f2ddc8, var(--fondo-principal));
+  background-size: 250px;
+}
+
+.login-box, .container {
+  width: 100%;
+  max-width: 340px;
+  padding: 25px 25px;
+  margin: 25px auto;
+  background-color: var(--fondo-transparente);
+  border-radius: 25px;
+  border: 2px solid var(--borde-caja);
+  box-shadow: 0 8px 28px var(--sombra-caja);
+  backdrop-filter: blur(6px);
+  animation: aparecerSuave 0.8s ease;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.login-box::before, .container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  pointer-events: none;
+  box-shadow: 0 0 18px var(--sombra-borde);
+}
+
+.login-box::after, .container::after {
+  content: "";
+  height: 4px;
+  width: 60%;
+  background: var(--gradiente-decorativo);
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50px;
+  opacity: 0.7;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.logo-container .logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--logo-borde);
+  background-color: #fff;
+  box-shadow: 0 0 10px var(--sombra-logo);
+  position: relative;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.logo-container .osito, .logo-container .oso-tapado {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo-container .oso-tapado {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+form:has(input[type="password"]:focus) .osito,
+.login-box:has(input[type="password"]:focus) .osito,
+.container:has(input[type="password"]:focus) .osito {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+form:has(input[type="password"]:focus) .oso-tapado,
+.login-box:has(input[type="password"]:focus) .oso-tapado,
+.container:has(input[type="password"]:focus) .oso-tapado {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.0);
+}
+
+h1, h2 {
+  font-family: 'Fredoka One', cursive;
+  color: var(--color-principal);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  color: var(--color-principal);
+  font-weight: 500;
+  margin-bottom: 5px;
+  align-self: flex-start;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: var(--input-fondo);
+  color: var(--color-texto);
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border: 2px solid var(--input-borde);
+  box-shadow: inset 0 0 7px var(--sombra-interna);
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: var(--color-placeholder);
+}
+
+input:focus {
+  outline: none;
+  background-color: var(--input-focus-fondo);
+  border-color: var(--input-focus-borde);
+  box-shadow: 0 0 11px var(--sombra-input-focus);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: var(--gradiente-boton);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.25s ease;
+  box-shadow: 0 3px 12px var(--sombra-boton);
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 25px var(--sombra-boton-hover);
+}
+
+p {
+  margin-top: 15px;
+  color: var(--color-secundario);
+  font-size: 0.9rem;
+}
+
+p a {
+  color: var(--color-enlace);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    background-color: var(--fondo-principal);
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .login-box,
+  .container {
+    max-width: 90%;
+    padding: 20px 18px;
+    border-radius: 20px;
+  }
+
+  .logo-container .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  h1, h2 {
+    font-size: 1.6rem;
+  }
+
+  label {
+    font-size: 0.9rem;
+  }
+
+  input {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    background-color: var(--fondo-principal);
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  .login-box,
+  .container {
+    max-width: 420px;
+    padding: 30px 25px;
+  }
+
+  .logo-container .logo {
+    width: 90px;
+    height: 90px;
+  }
+
+  h1, h2 {
+    font-size: 1.8rem;
+  }
+
+  input {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+.home-header{
+  width: 100%;
+  background: var(--fondo-secundario);
+  position: fixed;
+  top: 0;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--borde-secundario);
+}
+
+.home-header button{
+  background: var(--boton-fondo-header);
+  color:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.panel{
+  background: var(--fondo-secundario);
+  width:90%;
+  max-width:550px;
+  margin:110px auto 20px;
+  padding:20px;
+  border-radius:20px;
+  border:2px solid var(--panel-borde);
+  text-align:center;
+}
+
+#lista-proyectos .proyecto-item{
+  background: var(--proyecto-fondo);
+  padding:10px;
+  border-radius:12px;
+  margin:10px 0;
+}
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.input-group {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.icono {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--color-icono);
+  pointer-events: none;
+}
+
+.input-group input {
+  padding-left: 40px !important;
+}
+
+input[type="password"] {
+  -webkit-text-security: disc;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.ojo {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--color-icono);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ojo:hover {
+  color: var(--color-icono-hover);
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none;
+}
+
+input[type="password"]::-webkit-textfield-decoration-container {
+    display: none;
+}
