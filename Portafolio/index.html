@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Edithsa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+   <header class="hud">
+    <div class="logo-container">
+      <img src="img/osito.jpg" id="logo" alt="logo">
+    </div>
+        <nav>
+            <ul>
+                <li><a data-section="about">Inicio</a></li>
+                <li><a data-section="about-me">Acerca de Mi</a></li>
+                <li><a data-section="education">Educación</a></li>
+                <li><a data-section="skills">Tecnologías</a></li>
+                <li><a data-section="projects">Portafolio</a></li>
+                <li><a data-section="contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <button id="btn-tema" class="switch-tema">Cambiar tema</button>
+
+    </header>
+
+    <div id="game-layer">
+        <div id="platform"></div>
+        <div id="teddy"></div>
+    </div>
+
+    <div id="horizontal-wrapper">
+
+        <section id="about" class="panel">
+    <h1>Inicio</h1>
+
+    <div class="section-content">
+        <div class="section-text">
+            <p>
+                Holaa! En este espacio podrás ver algunos de mis proyectos y actividades
+                que he hecho durante la carrera de ingeniería en software
+            </p>
+        </div>
+
+        <img src="img/galleta.jpg" class="section-img">
+    </div>
+</section>
+
+        <section id="about-me" class="panel">
+    <h1>Acerca de Mi</h1>
+
+    <div class="section-content">
+
+        <div class="section-text">
+            <p>
+                Soy Edith, estudiante de ingeniería en software.
+                Me gusta mucho crear interfaces funcionales, estéticas y centradas en el usuario
+            </p>
+
+            <p style="margin-top:15px;">
+                Me caracterizo por ser una persona responsable
+                y seguir aprendiendo nuevas tecnologías
+            </p>
+
+            <p style="margin-top:15px;">
+                También disfruto diseñar prototipos y llevarlos a la web de forma clara y bien estructurada
+            </p>
+        </div>
+
+        <img src="img/about.jpg" class="section-img">
+    </div>
+</section>
+
+        <section id="education" class="panel">
+    <h1>Educación</h1>
+
+    <div class="section-content">
+
+        <div class="section-text">
+            <p>
+                <strong>Actualmente soy estudiante de 5 semestre de Ingeniería en Software</strong><br>
+                2023 – <br>
+                ITSON, Campus Sur, Navojoa, Sonora
+            </p>
+
+            <p style="margin-top:20px;">
+                <strong>Graduada de la preparatoria con buen promedio en la carrera de Programación. Título incluido</strong><br>
+                CBTIS 64, Navojoa, Sonora<br>
+                2020 – 2023
+            </p>
+        </div>
+
+        <img src="img/education.jpg" class="section-img"> 
+    </div>
+
+</section>
+
+        <section id="skills" class="panel">
+    <h1>Tecnologías</h1>
+
+    <div class="section-content">
+
+        <div class="section-text">
+            <p>
+                Estas son las tecnologías y herramientas que utilizo para crear proyectos
+            </p>
+
+            <div class="skills-wrapper">
+                <div class="skill-tag">HTML</div>
+                <div class="skill-tag">CSS</div>
+                <div class="skill-tag">Java</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">GitHub</div>
+                <div class="skill-tag">Figma</div>
+            </div>
+        </div>
+
+        <img src="img/tecnologias.jpg" class="section-img"> 
+    </div>
+</section>
+
+        <section id="projects" class="panel">
+            <h1>Portafolio</h1>
+
+            <div class="proyectos-container" id="lista-proyectos"></div>
+
+        </section>
+
+       <section id="contact" class="panel">
+    <h1>Contacto</h1>
+
+    <div class="section-content">
+
+        <div class="section-text">
+            <p>
+                Si deseas ponerte en contacto conmigo, puedes escribir a cualquiera de los siguientes medios:
+            </p>
+
+            <p><strong>Email:</strong> edithguadalupequinonessalazar@gmail.com</p>
+            <p><strong>WhatsApp:</strong> 64-21-41-05-09</p>
+            <p><strong>GitHub:</strong> https://github.com/edithsal?tab=repositories</p>
+            <p><strong>Instagram:</strong> https://www.instagram.com/edith_rqs</p>
+        </div>
+
+        <img src="img/contacto.jpg" class="section-img">
+    </div>
+</section>
+
+    </div>
+
+    <script src="./script.js"></script>
+
+    <script>
+    document.getElementById("btn-tema").addEventListener("click", function() {
+    document.body.classList.toggle("tema2");
+});
+</script>
+
+<div id="tsparticles"></div>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: true, zIndex: 0 },
+  particles: {
+    number: { value: 0 },
+    color: { value: "#d9a679" },
+    shape: { type: "star" },
+    size: { value: { min: 1, max: 3 } },
+    move: { enable: true, speed: 1, outModes: "destroy" },
+    life: { duration: { value: 0.5 }, count: 1 }
+  },
+  interactivity: {
+    events: { onHover: { enable: true, mode: "trail" }, onClick: { enable: false } },
+    modes: {
+      trail: {
+        delay: 0.005,
+        quantity: 4,
+        particles: {
+          number: { value: 4 },
+          life: { duration: { value: 0.3 } },
+          size: { value: { min: 1, max: 2 } }
+        }
+      }
+    }
+  },
+  detectRetina: true,
+  background: { color: "transparent" }
+});
+</script>
+
+</body>
+</html>
